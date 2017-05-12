@@ -1,0 +1,97 @@
+<apex:component controller="RecordLookupCompCtrlr" layout="none" selfClosing="true" rendered="{!NOT(ISBLANK(sobject))}">
+    <apex:attribute name="id"                   type="String"   description="Id of the component"></apex:attribute>
+    <apex:attribute name="sobject"              type="String"   description="API name of the sObject"></apex:attribute>
+    <apex:attribute name="label"                type="String"   description="Label to be displayed alongside the component"></apex:attribute>
+    <apex:attribute name="defaultValue"         type="String"   description="Default value that needs to be displayed upon the initial load of the component"></apex:attribute>
+    <apex:attribute name="componentWidth"       type="String"   description="Width of the component"></apex:attribute>
+    <apex:attribute name="filterListClass"      type="String"   description="CSS class applied to the select tag displaying the List Views"></apex:attribute>
+    <apex:attribute name="recordsListClass"     type="String"   description="CSS class applied to the select tag displaying the Records"></apex:attribute>
+    <apex:attribute name="load3rdPartyLib"      type="Boolean"  description="Determine whether to load 3rd party libraries or not" default="true"></apex:attribute>
+    <apex:attribute name="globalSearchFilter"   type="String"   description="WHERE Clause to be considered when doing a random search"></apex:attribute>
+    <apex:attribute name="onselect"             type="String"   description="JavaScript function that will be invoked upon selecting a record"></apex:attribute>
+    <apex:attribute name="callback"             type="String"   description="JavaScript function that will be invoked after rendering the records list"></apex:attribute>
+    <apex:attribute name="ns"                   type="string"   description="The NamespacePrefix(if available) that needs to used in order to access the Controller methods"></apex:attribute>
+    
+    <apex:outputPanel rendered="{!load3rdPartyLib}">
+        <apex:stylesheet value="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css"/>
+        <apex:stylesheet value="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.min.css"></apex:stylesheet>
+        <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></apex:includeScript>
+        <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/standalone/selectize.min.js"></apex:includeScript>
+    </apex:outputPanel>
+    
+    <apex:stylesheet value="{!$Resource.RecordLookupCSS}"></apex:stylesheet>
+    <apex:includeScript value="{!$Resource.RecordLookupJS}"></apex:includeScript>
+    
+    <table style="width:{!componentWidth}">
+        <tr>
+            <td colspan="2" class="halign-right">
+                <a id="{!id}__toggleFilter" href="javascript:void(0)">Change Filter</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="valign-top width-25 halign-right p-right--x-small">
+                <strong class="label">{!label}</strong><span class="text-danger">*</span>
+            </td>
+            <td>
+                <div id="{!id}__fetchProgress" class="hidden progress p-around--x-small">
+                    <img src="/img/loading.gif" />
+                    <span class="progress-msg">Fetching. Please wait...</span>
+                </div>
+                
+                <select id="{!id}__selListViews" class="hidden {!filterListClass}" placeholder="--Select--"></select>
+
+                <select id="{!id}__selRecords" class="{!recordsListClass}" placeholder="Recently Viewed">
+                    <option>--Select--</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    
+    <script type="text/javascript">
+        window["{!id}__initializer"] = function() {
+            //Create an instance of the Record Lookup
+            //Component.
+            window["{!id}"] = new RecordLookup( {
+                id                  : "{!id}",
+                sobject             : "{!sobject}",
+                label               : "{!label}",
+                defaultValue        : "{!defaultValue}",
+                globalSearchFilter  : "{!globalSearchFilter}",
+                onselect            : "{!onselect}",
+                callback            : "{!callback}",
+                ns                  : "{!ns}"
+            } );
+            
+            //Bind the Event Handlers
+            window["{!id}"].bindEvents();
+    
+            //Fetch and display most recently viewed records.
+            window["{!id}"].fetchDefaultRecords();
+            
+            //Fetch and display the List Views defined on
+            //the object.
+            window["{!id}"].showListViews();
+        };
+        
+        /**
+         * If we are not loading file(JS/CSS)
+         * required for the component to work
+         * and if we are depending on the
+         * resources already being loaded on
+         * the host page then we make sure that
+         * the component will fire only at the
+         * end of the page load.
+         */
+        if( {!load3rdPartyLib} === false ) {
+            document.addEventListener(
+                "DOMContentLoaded", 
+                function( event ) { 
+                    window["{!id}__initializer"]();
+                }
+            );
+        }
+        else {
+            window["{!id}__initializer"]();
+        }
+    </script>
+</apex:component>

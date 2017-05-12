@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>ListViewAPI</members>
+        <members>ListViewsDescribeResponse</members>
+        <members>ListViewsResponse</members>
+        <members>RecordLookupCompCtrlr</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>RecordLookup</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>ComponentTest</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>RecordLookupCSS</members>
+        <members>RecordLookupJS</members>
+        <name>StaticResource</name>
+    </types>
+    <version>36.0</version>
+</Package>

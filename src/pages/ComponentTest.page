@@ -1,0 +1,13 @@
+<apex:page >
+    <c:RecordLookup id="accLkp" sobject="Account" label="Account" componentWidth="70%" filterListClass="slds-select" recordsListClass="slds-select" load3rdPartyLib="true" onselect="onselect"/>
+    
+    <c:RecordLookup id="conLkp" sobject="Contact" label="Contact" componentWidth="70%" filterListClass="slds-select" recordsListClass="slds-select" load3rdPartyLib="true" onselect="onselect"/>
+    
+    <c:RecordLookup id="leadLkp" sobject="Lead" label="Lead" componentWidth="70%" filterListClass="slds-select" recordsListClass="slds-select" load3rdPartyLib="true" onselect="onselect"/>
+    
+    <script type="text/javascript">
+        var onselect = function( recordId ) {
+            console.log( recordId );
+        };
+    </script>
+</apex:page>
