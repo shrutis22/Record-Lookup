@@ -45,7 +45,20 @@ This componenet has the following attributes
 Check out this link if you want to see it live - http://shrutis22-developer-edition.ap2.force.com/Projects/componenttest
 
 ## Deployment
-Use the below button to deploy this to your SF Org in a single click! 
+Use the below button to deploy this to your SF Org in a single click!
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=shrutis22&repo=Record-Lookup">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
+## Post-Deployment Steps
+After deployment please carry out the following steps:
+1. Open the Visualforce page called **ComponentTest**.
+2. Copy the domain from the address bar - 
+![screenshot_2](https://cloud.githubusercontent.com/assets/16715515/26102200/a66aa58e-3a51-11e7-904a-de461634ed70.png)
+3. Create a new **Remote Site Setting** for the domain.
+4. Now refresh the page to see it in action.
 
 ## Licensing
 Completely free! Use it at your own will.
