@@ -70,6 +70,6 @@ select {
     opacity: 0;
 }
 
-.selectize-control.loading::before {
+.selectize-control.fetching::before {
     opacity: 1;
 }
