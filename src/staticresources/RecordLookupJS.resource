@@ -80,6 +80,7 @@ RecordLookup.prototype.__fetchRecords = function( self, listViewId ) {
         
         self.__$selRecords = $( id ).removeClass().selectize(
             {
+                loadingClass    : "fetching",
                 maxItems        : 1,
                 sortField       : "name",
                 labelField      : "name",
@@ -164,6 +165,7 @@ RecordLookup.prototype.__fetchRecords = function( self, listViewId ) {
                     
                     self.__$selRecords = $( id ).removeClass().selectize(
                         {
+                            loadingClass    : "fetching",
                             maxItems        : 1,
                             sortField       : "name",
                             labelField      : "name",
@@ -272,6 +274,7 @@ RecordLookup.prototype.fetchDefaultRecords = function() {
                 if( result.status ) {
                     self.__$selRecords = $( id ).removeClass().selectize(
                         {
+                            loadingClass    : "fetching",
                             maxItems        : 1,
                             sortField       : "name",
                             labelField      : "name",
@@ -320,6 +323,7 @@ RecordLookup.prototype.showListViews = function() {
                     
                     self.__$selListView = $( id ).removeClass().addClass( "hidden" ).selectize(
                         {
+                            loadingClass    : "fetching",
                             maxItems        : 1,
                             sortField       : "label",
                             labelField      : "label",
