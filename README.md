@@ -61,4 +61,4 @@ After deployment please carry out the following steps:
 4. Now refresh the page to see it in action.
 
 ## Licensing
-Completely free! Use it at your own will.
+Completely free! Use it at your own will. Feel free to add a citation to this GitHub Repo.
