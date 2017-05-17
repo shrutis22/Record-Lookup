@@ -42,7 +42,7 @@ This componenet has the following attributes
   `ns`                  : The NamespacePrefix(if available) that needs to used in order to access the Controller methods
 
 ## Demo
-Check out this link if you want to see it live - http://shrutis22-developer-edition.ap2.force.com/Projects/componenttest
+Check out this link if you want to see it live - ![http://shrutis22-developer-edition.ap2.force.com/Projects/componenttest](http://shrutis22-developer-edition.ap2.force.com/Projects/componenttest)
 
 ## Deployment
 Use the below button to deploy this to your SF Org in a single click!
