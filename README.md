@@ -1,5 +1,5 @@
-# Record Lookup
-A Record Lookup component which lets you to select records from a selected List View or via a Global Search.
+# Record Lookup for Visualforce
+A Record Lookup component for Visualforce which lets you to select records from a selected List View or via a Global Search.
 
 ## Problem
 It is difficult to search for records when you have lots of them in your org and when you want the records to be filtered based on a certain condition. Everytime we cannot go to the code and add WHERE conditions. Categorizing and viewing the records based on certain condition becomes difficult.
